@@ -2,39 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS HSL */
-html {
-  --phthalo-green: hsla(107, 56%, 10%, 1);
-  --lemon-meringue: hsla(48, 83%, 89%, 1);
-  --orange-yellow-crayola: hsla(47, 87%, 66%, 1);
-  --mandarin: hsla(18, 83%, 63%, 1);
-  --xanadu: hsla(148, 6%, 52%, 1);
-}
+/* Reset */
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* Begin reset https: //piccalil.li/blog/a-modern-css-reset/ */
-
-/* Box sizing rules */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  @apply box-border;
 }
 
-/* Remove default margin */
 body,
 h1,
 h2,
@@ -45,40 +20,37 @@ figure,
 blockquote,
 dl,
 dd {
-  margin: 0;
+  @apply m-0;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
 ol[role='list'] {
-  list-style: none;
+  @apply list-none;
 }
 
-/* Set core root defaults */
 html:focus-within {
-  scroll-behavior: smooth;
+  @apply scroll-smooth;
 }
 
-/* Set core body defaults */
 body {
-  min-height: 100vh;
+  @apply min-h-screen m-0 leading-normal bg-green;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-/* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
-  display: block;
+  @apply block max-w-full;
 }
 
-/* Inherit fonts for inputs and buttons */
 input,
 button,
 textarea,
@@ -86,10 +58,9 @@ select {
   font: inherit;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-    scroll-behavior: auto;
+    @apply scroll-auto;
   }
 
   *,
@@ -102,4 +73,17 @@ select {
   }
 }
 
-/* End Reset */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Layout */
+
+section {
+  @apply m-4;
+}
+
+.container {
+  @apply mx-auto max-w-4xl;
+}
